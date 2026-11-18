@@ -1,0 +1,92 @@
+{
+  "protocol_id": "P2-R2-PATH-B-v1",
+  "model": "qwen3:8b",
+  "model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+  "quantization": "Q4_K_M",
+  "target_ollama_version": "0.30.7",
+  "backend_version_status": "prospective_target_only",
+  "template_sha256": "ae370d884f108d16e7cc8fd5259ebc5773a0afa6e078b11f4ed7e39a27e0dfc4",
+  "body": {
+    "system": "",
+    "raw": false,
+    "stream": false,
+    "truncate": false,
+    "shift": false
+  },
+  "timeouts_seconds": {
+    "connect": 10,
+    "read": {
+      "T": 900,
+      "D": 180,
+      "R": 900
+    },
+    "retry_policy": "no automatic retries; UNKNOWN_DELIVERY is terminal pending reconciliation"
+  },
+  "ollama_defaults_explicit": {
+    "typical_p": 1.0,
+    "repeat_last_n": 64,
+    "presence_penalty": 0.0,
+    "frequency_penalty": 0.0,
+    "num_keep": 4,
+    "num_batch": 512,
+    "draft_num_predict": 0,
+    "num_thread": 0,
+    "num_gpu": -1,
+    "repeat_penalty": 1.0,
+    "stop": [
+      "<|im_start|>",
+      "<|im_end|>"
+    ]
+  },
+  "actions": {
+    "T": {
+      "prompt": "Answer the question using only the provided context. Give the shortest answer that is fully supported by the context. Do not explain.\n\nContext:\n{context}\n\nQuestion: {question}\nAnswer:",
+      "think": true,
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "seed": 20260831,
+      "num_predict": 2048,
+      "num_ctx": 4096,
+      "repair": [
+        [
+          4096,
+          4096
+        ],
+        [
+          4096,
+          8192
+        ]
+      ]
+    },
+    "D": {
+      "prompt": "Decide whether the current answer is off-topic for the question.\nOutput exactly OK or OFF_TOPIC. Do not explain.\n\nQuestion:\n{question}\n\nCurrent answer:\n{previous_answer}\n\nDecision:\n",
+      "think": false,
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "seed": 20261003,
+      "num_predict": 8,
+      "num_ctx": 4096
+    },
+    "R": {
+      "prompt": "Answer the question using only the provided context. Give the shortest answer that is fully supported by the context. Do not explain.\n\nContext:\n{context}\n\nQuestion: {question}\nAnswer:\n",
+      "think": true,
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "seed": 20261004,
+      "num_predict": 2048,
+      "num_ctx": 4096
+    }
+  },
+  "normalization": "HotpotQA official normalize_answer; yes/no exemption first normalized token; lexical substring absence",
+  "historical_y0": {
+    "generation_parameters": {
+      "temperature": 0.0,
+      "num_predict": 256
+    },
+    "new_y0_regeneration": false
+  },
+  "path": "B"
+}
