@@ -1,0 +1,10 @@
+Decide whether the current answer is off-topic for the question.
+Output exactly OK or OFF_TOPIC. Do not explain.
+
+Question:
+{{QUESTION}}
+
+Current answer:
+{{CURRENT_ANSWER}}
+
+Decision:

@@ -1,10 +1,8 @@
-# Datasets
+# Benchmark sources
 
-| Benchmark | Official source | Relevant evaluation data |
-| --- | --- | --- |
-| HotpotQA | [Project and downloads](https://hotpotqa.github.io/) · [Evaluator source](https://github.com/hotpotqa/hotpot/blob/3635853403a8735609ee997664e1528f4480762a/hotpot_evaluate_v1.py) | Development distractor split for the full development evaluation. The controlled ablation uses a separately frozen subset. |
-| 2WikiMultiHopQA | [Maintainers’ repository](https://github.com/Alab-NII/2wikimultihop) | Use the maintainers’ download and split instructions for development-set data. Paper-specific sample selection and derived contexts are separate artifacts. |
+| Dataset | Maintainer links and scope |
+|---|---|
+| HotpotQA | [Dataset home and download links](https://hotpotqa.github.io/). The dataset and the processed Wikipedia release are distributed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). The separate [upstream answer evaluator license](https://github.com/hotpotqa/hotpot/blob/3635853403a8735609ee997664e1528f4480762a/LICENSE.txt) is Apache 2.0. |
+| 2WikiMultiHopQA | [Maintainer repository and dataset instructions](https://github.com/Alab-NII/2wikimultihop). Consult the dataset download terms and source-content rights separately from the repository's software license. |
 
-Obtain the datasets from their maintainers and follow the accompanying terms of use. Keep dataset files outside this repository. The public benchmarks provide the source questions, reference answers, and evidence. Reproducing a reported run additionally requires its frozen question IDs, evidence selection and serialization, and any required archived model outputs.
-
-Pass questions and retrieved evidence to the inference code. Use reference answers only in the offline evaluation step.
+The historical HotpotQA development run uses the distractor development split. The G1 ablation uses its frozen 500-example cohort. Dataset downloads alone do not supply the serialized contexts, predictions, or ordered score exports for those runs. Obtain these materials from their respective maintainers or authorized research-archive channels.

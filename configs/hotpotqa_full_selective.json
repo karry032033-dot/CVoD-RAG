@@ -1,0 +1,37 @@
+{
+  "model_digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+  "think": true,
+  "initial_options": {
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "num_predict": 2048,
+    "seed": 20260831
+  },
+  "historical_repair_options": [
+    {
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "num_predict": 4096,
+      "seed": 20260831
+    },
+    {
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "top_k": 20,
+      "num_predict": 4096,
+      "seed": 20260831,
+      "num_ctx": 8192
+    }
+  ],
+  "bootstrap": {
+    "population_size": 7405,
+    "seed": 20260910,
+    "draws": 10000,
+    "empirical_zero_based_indices": [
+      124,
+      9874
+    ]
+  }
+}

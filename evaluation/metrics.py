@@ -1,3 +1,5 @@
+# Historical adaptation of the HotpotQA answer-scoring rules. See THIRD_PARTY_NOTICES.md.
+# This modified helper preserves the historical empty-pair convention. Use official_answer_scorer for official results.
 """Selected definitions from the frozen research implementation."""
 
 import re

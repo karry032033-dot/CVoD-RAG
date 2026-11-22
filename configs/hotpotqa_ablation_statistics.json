@@ -1,0 +1,42 @@
+{
+  "paired_contrasts": [
+    [
+      "B1",
+      "B0"
+    ],
+    [
+      "B2",
+      "B0"
+    ],
+    [
+      "B3",
+      "B0"
+    ],
+    [
+      "B7",
+      "B6"
+    ],
+    [
+      "B7",
+      "B5"
+    ],
+    [
+      "B7",
+      "B4"
+    ]
+  ],
+  "bootstrap_seed": 20261113,
+  "bootstrap_draws": 10000,
+  "ci95_zero_based_indices": [
+    249,
+    9749
+  ],
+  "bonferroni_six_zero_based_indices": [
+    41,
+    9958
+  ],
+  "metrics": [
+    "f1",
+    "em"
+  ]
+}

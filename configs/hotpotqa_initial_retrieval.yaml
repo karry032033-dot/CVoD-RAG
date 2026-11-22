@@ -1,0 +1,17 @@
+split: dev_distractor
+model:
+  provider: ollama
+  model_name: qwen3:8b
+  temperature: 0.0
+  think: false
+  num_predict: 256
+generation:
+  prompt_style: concise_grounded
+retrieval:
+  token_budget: 1024
+  top_k: 12
+  dense_model_name: BAAI/bge-base-en-v1.5
+  dense_model_revision: a5beb1e3e68b9ab74eb54cfd186867f64f240e1a
+  budget_tokenizer: cl100k_base
+conditions:
+  - {name: retrieved_context, retriever: dense, granularity: paragraph}

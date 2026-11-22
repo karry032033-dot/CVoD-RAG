@@ -1,0 +1,7 @@
+Answer the question using only the provided context. Give the shortest answer that is fully supported by the context. Do not explain.
+
+Context:
+{{CONTEXT}}
+
+Question: {{QUESTION}}
+Answer:

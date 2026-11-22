@@ -1,0 +1,60 @@
+{
+  "module": "M2-DR full-scale confirmation",
+  "starting_system": "frozen T1 only",
+  "pipeline": "Frozen T1 -> OFF_TOPIC discriminator -> exactly one Re-Solve on OFF_TOPIC",
+  "model": {
+    "name": "qwen3:8b",
+    "digest": "500a1f067a9f782620b40bee6f7b0c89e17ae61f686b92c24933e4ca4b2b8b41",
+    "quantization": "Q4_K_M"
+  },
+  "discriminator": {
+    "prompt": "m2_dr_discriminator_prompt.txt",
+    "prompt_sha256": "da517037ae865c0b1129a6bef0233b073b13b203d413dd31670326dbe797fbc3",
+    "think": false,
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "num_predict": 8,
+    "num_ctx": "not set",
+    "seed": 20261003,
+    "inputs": [
+      "question",
+      "current T1 answer"
+    ],
+    "context_allowed": false,
+    "allowed_outputs": [
+      "OK",
+      "OFF_TOPIC"
+    ],
+    "malformed_output": "retain T1; no retry"
+  },
+  "re_solve": {
+    "prompt": "m2_dr_resolve_prompt.txt",
+    "prompt_sha256": "3a385372ffb28a5607c1bd8b4cb550f6ef5c783b278a6378e2964b5fce3e5026",
+    "think": true,
+    "temperature": 0.6,
+    "top_p": 0.95,
+    "top_k": 20,
+    "num_predict": 2048,
+    "num_ctx": "not set",
+    "seed": 20261004,
+    "inputs": [
+      "original question",
+      "original frozen retrieved context"
+    ],
+    "previous_answer_excluded": true,
+    "max_calls_per_flagged_example": 1,
+    "re_compose": 0,
+    "re_decompose": 0,
+    "iterative_retry": 0
+  },
+  "bootstrap": {
+    "seed": 20261014,
+    "resamples": 10000,
+    "ci_level": 0.95,
+    "paired": true,
+    "statistic": "mean per-example M2-DR minus T1 F1",
+    "frozen_before_gold_scoring": true
+  },
+  "gold_firewall": "No gold, correctness, F1, or EM loaded before pre-gold freeze."
+}
